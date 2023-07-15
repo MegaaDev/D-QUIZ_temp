@@ -1,0 +1,41 @@
+extends base
+
+block content
+  .background-container
+    .loginCard
+      .nav
+        .nav-contents
+          .Logo
+            h1 D-Quiz
+    .central-container-bio
+      div
+        h1
+          | Hello 
+          span= user.name
+      .Enter-details
+        .bio-input
+          textarea#bio(name='' placeholder='Enter Bio')
+          .upload-photo-text
+            p
+              | Upload your 
+              span Profile
+              |  pic
+          .upload-photo-container
+            .upload-photo
+              div
+                img(src=`./img/users/${user.photo}` alt='')
+              .photo-submit
+                input#photo(type='file' accept='image/*' name='photo')
+          .bio-submit-button Submit
+        .interested-tags
+          .interested-tags-input
+            input#tags(type='text' placeholder='search interested topics')
+          .tag-set.tag-1 Coding
+          .tag-set.tag-2 Music
+          .tag-set.tag-3 Food
+          .tag-set.tag-4 Movies
+          .tag-set.tag-5 Education
+          .tag-set.tag-6 Tech
+          .tag-set.tag-7 Space
+          .tag-set.tag-8 Metaverse
+          .tag-set.tag-9 ML/AI

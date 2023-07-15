@@ -1,0 +1,92 @@
+extends base
+
+block content
+  .background-container
+    .central-container
+      .middle-container-screen-question-attempt-quiz
+        .back
+          img(src='/images/log-out.png' alt='')
+        .take-quiz-title= quiz.title
+        .take-quiz-title-length= quiz.questions.length
+        .take-quiz-id= quiz.id
+
+
+        for q in quiz.questions
+          .question-section
+            .takequiz-top
+              .question-takequiz
+                .question-number= q.number
+                p= q.question
+            .takequiz-bottom
+              .options-top
+                .options-take-quiz.option-1
+                  if q.correct == "A"
+                    .option-text-A.options-quiz-take.correct-option
+                      p A
+                    .option-text-A-subject= q.choice1
+                  else 
+                    .option-text-A.options-quiz-take
+                      p A
+                    .option-text-A-subject= q.choice1 
+                .options-take-quiz.option-2
+
+                  if q.correct == "B" 
+                    .option-text-B.options-quiz-take.correct-option
+                      p B
+                    .option-text-B-subject= q.choice2 
+                  else 
+                    .option-text-B.options-quiz-take
+                      p B
+                    .option-text-B-subject= q.choice2
+                 
+              .options-bottom
+                .options-take-quiz.option-3
+                  if q.correct == "C"
+                    .option-text-C.options-quiz-take.correct-option
+                      p C
+                    .option-text-C-subject= q.choice3
+                  else
+                    .option-text-C.options-quiz-take
+                      p C
+                    .option-text-C-subject= q.choice3
+                .options-take-quiz.option-4
+                  if q.correct == "D"
+                    .option-text-D.options-quiz-take.correct-option
+                      p D
+                    .option-text-D-subject= q.choice4
+                  else 
+                    .option-text-D.options-quiz-take
+                      p D
+                    .option-text-D-subject= q.choice4
+            .buttons-take-quiz
+              .clear-button Clear
+              .next-button Next
+          
+      .right-container-screen-question-attempt-quiz
+        .top-right
+          .snippets
+            - for(var x = 1; x <= quiz.questions.length; x++)
+              div(class='quiz-snippet')
+                p= x
+             
+        .middle-right
+          .attempting-box
+            .color-box
+            p.hyphen -
+            .text-box
+              p Attempting
+          .attempted-box
+            .color-box
+            p.hyphen -
+            .text-box
+              p Attempted
+          .notattempted-box
+            .color-box
+            p.hyphen -
+            .text-box
+              p Not Attempted
+        .bottom-right
+          .exit-quiz
+            p Exit Quiz
+          .submit-quiz
+            p Submit Quiz

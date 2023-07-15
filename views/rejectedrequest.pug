@@ -1,0 +1,42 @@
+extends base
+
+block content 
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+        .search-box
+          input(type='text' placeholder='search for quizzes')
+          if user
+            .user-photo
+              img(src=`/img/users/${user.photo}` alt='')
+          else if !user   
+            .sign-up-home
+              p sign up
+    .central-container
+      .left-container-screen
+        .side-nav
+          ul
+            li.home Home
+            li.my-profile My Profile
+            li.create-quiz Create Quiz
+            li.people People
+            li.friends.boldIt Friends
+            li.settings Settings
+      .middle-container-screen-friendrequest
+        .top-friendreq-reject
+          .profile-pics-friends
+            .profile-pic-friendreq
+              img(src=`/img/users/${user.photo}` alt='')
+      
+            .friends-logo
+              img(src='/images/heartbroken.png' alt='')
+            
+            .profile-pic-friendreq
+              img(src=`/img/users/${friend.photo}` alt='')
+          p= `Rejected Friend Request with ${friend.username}!!`
+        .bottom-friendreq-accept
+          .back-to-friends
+            p Back to Friends
+      .right-container-screen-friendrequest

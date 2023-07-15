@@ -1,0 +1,103 @@
+extends base
+
+block content 
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+        .search-box
+          input(type='text' placeholder='search for quizzes')
+    .central-container
+      .left-container-screen
+        .side-nav
+          ul
+            li.home Home
+            li.my-profile.boldIt My Profile
+            li.create-quiz Create Quiz
+            li.people People
+            li.friends Friends
+            li.settings Settings
+      .middle-container-screen
+        .profile-card
+          .profile-header
+            .profile-image
+              img(src=`./img/users/${user.photo}` alt='')
+            .profile-title
+              div
+                h1= user.name
+              p
+                span= user.friends.length
+                |  Friends
+          .profile-block1
+            .block1-left
+              div
+                p Quiz Created
+              h2= quizzes.length
+            .block1-right
+              p.cyan.bio BIO
+              div
+                p.para= user.bio
+          .profile-block2
+            .block1-left
+              div
+                p Quiz taken
+              h2= user.quizzesTaken.length
+            .block1-right
+              p.cyan.bio Tags
+              div
+                p.para
+                  | #coding #web #react #ux #astronomy #content #design #music
+                  | #gk #golf ...
+          .profile-footer
+            .credits
+              h2= user.credits
+            div
+              p credits
+      .my-score-screen
+        
+        .quiz-you-attempted
+          p Quizzes you attempted
+        .quiz-total-length 
+          p= quiz_array.length
+        for q in quiz_array
+          .score-snippets
+            .quiz-score-user= user.id
+            .quiz-score-quiz-id= q.quizID     
+            .quiz-title-profile= q.name
+            .quiz-score-profile= q.score
+      .right-container-screen
+        .show-quizzes
+          p Your Quizzes
+        for quiz in quizzes
+          .your-quiz
+            .your-quiz-header
+              .quiz-title
+                h2= quiz.title
+              if quiz.difficulty === 'easy'
+                .difficulty.easy-mode
+                  p= quiz.difficulty
+              else if quiz.difficulty === 'medium'
+                .difficulty.medium-mode
+                  p= quiz.difficulty
+              else if quiz.difficulty === 'difficult'
+                .difficulty.difficult-mode
+                  p= quiz.difficulty    
+            .your-quiz-middle
+              p= quiz.description
+            .your-quiz-footer
+              .your-quiz-tags
+                .tag(style='color: rgb(176, 72, 72)')
+                  p coding
+                .tag(style='color: rgb(214, 169, 62)')
+                  p music
+                .tag(style='color: rgb(23, 195, 135)')
+                  p computer
+                .tag(style='color: rgb(185, 47, 132)')
+                  p binary
+                .tag(style='color: rgb(120, 19, 117)')
+                  p web
+                .tag(style='color: rgb(234, 149, 22)')
+                  p app
+                .tag(style='color: rgb(85, 11, 117)')
+                  p add

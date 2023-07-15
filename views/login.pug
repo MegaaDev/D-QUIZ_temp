@@ -1,0 +1,33 @@
+extends base
+
+block content 
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+    .middle-container
+      .loginCard
+        h1.signup-text Login
+        .signUp
+          input#loginemail(type='email' placeholder='Email')
+        .signUp
+          input#loginpassword(type='password' placeholder='Password')
+        .signUp.login-button
+          h1 login
+        .forgotPassword
+          div
+            p Forgot password?
+          .Login-here
+            p Click here
+        .authentication-login
+          .cl1
+            .delta
+              img(src='./images/deltaLogoGreen.png' alt='')
+            div
+              p Dauth
+          .cl2
+            .google
+              img(src='./images/googleLogo.png' alt='')
+            div
+              p Google

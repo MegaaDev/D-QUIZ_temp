@@ -1,0 +1,81 @@
+extends base
+
+block content 
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+        .users-count 
+          p= users.length
+        .search-box
+          input(type='text' placeholder='search for quizzes')
+          if userMe
+            .user-photo
+              img(src=`./img/users/${userMe.photo}` alt='')
+          else if !userMe   
+            .sign-up-home
+              p sign up
+    .central-container
+      .left-container-screen
+        .side-nav
+          ul
+            li.home Home
+            li.my-profile My Profile
+            li.create-quiz Create Quiz
+            li.people.boldIt People
+            li.friends Friends
+            li.settings Settings
+      .middle-container-screen-question-friends
+        .search-friends
+          .click-to-search
+            img(src=`./images/search.png` alt='')
+
+          .search-input-friends
+            input#search-users(type='text' placeholder='Search for people')
+        .recommended
+          div
+            h1
+              span Recommended
+              |  people for you
+        .friends-show
+          for user in users
+            .friend-card
+              img.add-friend-logo(src='./images/addFriend.png' alt='')
+              img.request-logo.hideIT(src='./images/check.png' alt='')
+              .request-sent-msg.hideIT
+                p Request Sent!
+              .friend-name
+                .friend-photo
+                  img(src=`./img/users/${user.photo}` alt='')
+
+                .friend-name-input= user.username
+                .people-id
+                  p= user.id
+              .credits-count
+                | Credits &nbsp
+                span=  `${user.credits}`
+              .friend-tags
+                .tags-input-friend
+                  p Tags
+                .tags-list
+                  .mini-tags(style='color: #0dc9be')
+                    p Coding
+                  .mini-tags(style='color: #de870c')
+                    p Space
+                  .mini-tags(style='color: #9729c2')
+                    p Marvel
+                  .mini-tags(style='color: #c62b61')
+                    p React
+                  .mini-tags(style='color: #a83b3b')
+                    p Node
+                  .mini-tags(style='color: #279f7f')
+                    p Food
+                  .mini-tags(style='color: #662bc6')
+                    p Friends
+              .bottom-container-friends
+                .view-quizzes-input
+                  h2
+                    | View 
+                    span Quizzes
+      .right-container-screen-question

@@ -1,0 +1,38 @@
+extends base
+
+block content 
+  .background-container-show-score
+    .top-container-show-score
+      h1
+        | Quiz Results - 
+        span= quiz.title
+    .middle-container-show-score
+      .total-taken
+        .top-container-taken
+          p Total
+        .bottom-container-taken
+          p= score_array.total
+      .attempted-taken
+        .top-container-taken
+          p Attempted
+        .bottom-container-taken
+          p= score_array.attempted
+      .correct-taken
+        .top-container-taken
+          p Correct
+        .bottom-container-taken
+          p= score_array.correct
+      .incorrect-taken
+        .top-container-taken
+          p Incorrect
+        .bottom-container-taken
+          p= score_array.incorrect
+    .bottom-container-show-score
+      .container-score
+        .score-taken
+          .score-showcase-top
+            p Score
+          .score-showcase-bottom= score_array.score
+        .total-credits
+      .back-to-home
+        p Back to Home

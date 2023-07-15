@@ -1,0 +1,105 @@
+extends base
+
+block content
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+        .search-box
+          input(type='text' placeholder='search for quizzes')
+          if user
+            .user-photo
+              img(src=`/img/users/${user.photo}` alt=``)
+          else if !user   
+            .sign-up-home
+              p sign up
+    .central-container
+      .left-container-screen-take-quiz
+        .side-nav
+          ul
+            li.home Home
+            li.my-profile My Profile
+            li.create-quiz Create Quiz
+            li.people People
+            li.friends Friends
+            li.settings Settings
+      .middle-container-screen-question-take-quiz
+        .title-box
+          .title-box-name
+            h1= `${quiz.title}`
+          .temp-id 
+            p= quiz.id
+          .temp-question-id 
+            p= quiz.questions[0].id
+          .title-box-description
+            .title-box-difficulty
+              | Difficulty: 
+              if quiz.difficulty === 'easy'
+                span.easy-mode-text= quiz.difficulty
+              else if quiz.difficulty === 'medium'
+                span.medium-mode-text= quiz.difficulty
+
+              else if quiz.difficulty === 'difficult'
+                span.difficult-mode-text= quiz.difficulty
+
+              
+             
+            .description-quiz-box
+              | Description: &nbsp;
+              span.paragraph-description= quiz.description
+          .guidlines-quiz
+            .guidlines-text
+              h3 Quiz Guidlines
+            .guidlines-para
+              p
+                span Introduction
+                |  : Provide a brief introduction to
+                |                   the quiz, explaining its purpose and any relevant information.
+                |                   Let the users know what they can expect from the quiz.
+                |                   Duration: Mention the estimated duration of the quiz. This
+                |                   will help users plan their time accordingly and set
+                |                   expectations. 
+                br
+                br
+                span Instructions
+                |  : Clearly state the instructions for
+                |                   taking the quiz. Explain how to answer questions, whether
+                |                   there is a time limit for each question, and any specific
+                |                   rules or guidelines that need to be followed. 
+                br
+                br
+                span  Question Format
+                |  : Specify the format of the
+                |                   questions, such as multiple choice, true/false, fill in the
+                |                   blanks, or open-ended. Let users know if there are any
+                |                   specific rules for each question type. Scoring and Grading:
+                |                   Explain how the quiz will be scored and graded. Inform users
+                |                   if there are negative marks for incorrect answers, partial
+                |                   marks for partially correct answers, or any specific scoring
+                |                   system in place. 
+                br
+                br
+                span Navigation
+                |  : Describe the navigation options
+                |                   available during the quiz. Inform users if they can go back
+                |                   and change their answers or if the quiz is set to allow only
+                |                   forward progression. 
+                br
+                br
+                span Time Limit
+                |  : If there is a time limit for the
+                |                   entire quiz, clearly state it. Let users know if there will be
+                |                   a countdown timer visible during the quiz to help them manage
+                |                   their time effectively. 
+                br
+                br
+                span Review and Submit
+                |  : Inform users whether they
+                |                   will have an opportunity to review their answers before
+                |                   submitting the quiz. If there are any specific instructions
+                |                   for the submission process, mention them here.
+          .take-quiz-button
+            .exit-quiz-click-button Exit
+            .take-quiz-click-button Take Quiz
+      .right-container-screen-question

@@ -1,0 +1,57 @@
+extends base
+
+block content 
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+        .search-box
+          input( type='text' placeholder='search for quizzes')
+          if user
+            .user-photo
+              img(src=`./img/users/${user.photo}` alt='')
+          else if !user   
+            .sign-up-home
+              p sign up
+    .central-container
+      .left-container-screen
+        .side-nav
+          ul
+            li.home Home
+            li.my-profile My Profile
+            li.create-quiz.boldIt Create Quiz
+            li.people People
+            li.friends Friends
+            li.settings Settings
+      .middle-container-screen-question
+        .top-container-quiz
+          .top1
+            .left1
+              .title-for-quiz
+                input(id = 'quiz_title' type='text' placeholder='Title')
+            .right1
+              .difficulty-input
+                .easy-input EASY
+                .medium-input MEDIUM
+                .difficult-input HARD
+              .quiz-status 
+                .public-quiz PUBLIC
+                .private-quiz PRIVATE
+          .top2
+            .left2
+              .description-for-quiz
+                textarea(name='' id='quiz_description' placeholder='Description')
+            .right2
+              .tags-input
+                textarea(name='' id='quiz_tags' placeholder='Tags')
+              
+        .bottom-container-quiz
+          .add-question-template
+          .add-question
+            div
+              img(src='./images/add.png' alt='')
+            .add-question-text
+              h3 Add Question
+          .create-quiz-button Create
+      .right-container-screen-question

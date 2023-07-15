@@ -1,0 +1,53 @@
+extends base
+
+block content 
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+        .search-box
+          input(type='text' placeholder='search for quizzes')
+          if user
+            .user-photo
+              img(src=`/img/users/${user.photo}` alt='')
+          else if !user   
+            .sign-up-home
+              p sign up
+    .central-container
+      .left-container-screen
+        .side-nav
+          ul
+            li.home Home
+            li.my-profile My Profile
+            li.create-quiz Create Quiz
+            li.people People
+            li.friends.boldIt Friends
+            li.settings Settings
+      .middle-container-screen-incoming-requests
+        .top-container-incoming
+          p Incoming Requests
+        .incoming-requests-length 
+          p= incomingrequests.length
+        .bottom-container-incoming
+          for request in incomingrequests
+            .friend-request-snippet
+              .nameAndCredits
+                .name-incoming-request
+                  .profile-pic-incoming-request
+                    img(src=`./img/users/${request.photo}` alt='')
+                  p= request.name
+                  .reciever-id-secret 
+                    p= request.recid
+                .credits-incoming-request
+                  | Credits &nbsp 
+                  span= request.credits
+              .acceptorReject
+                .accept-request
+                  img(src='/images/accept.png' alt='')
+                .reject-request
+                  img(src='/images/reject.png' alt='')
+                .request-accepted.hideITT Request Accepted!
+                .request-rejected.hideITT Request Rejected!
+
+      .right-container-screen-incoming-requests

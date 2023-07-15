@@ -1,0 +1,33 @@
+extends base 
+
+block content 
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+        .search-box
+          input(type='text' placeholder='search for quizzes')
+          if user
+            .user-photo
+              img(src=`./img/users/${user.photo}` alt='')
+          else if !user   
+            .sign-up-home
+              p sign up
+    .central-container
+      .left-container-screen
+        .side-nav
+          ul
+            li.home Home
+            li.my-profile My Profile
+            li.create-quiz Create Quiz
+            li.people People
+            li.friends Friends
+            li.settings.boldIt Settings
+      .middle-container-screen-question-friends
+        .settings-icon
+          .settings-title
+            h1 Settings
+        .logout-container
+          .logout Logout
+      .right-container-screen-question

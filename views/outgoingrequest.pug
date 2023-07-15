@@ -1,0 +1,45 @@
+extends base
+
+block content 
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+        .search-box
+          input(type='text' placeholder='search for quizzes')
+          if user
+            .user-photo
+              img(src=`/img/users/${user.photo}` alt='')
+          else if !user   
+            .sign-up-home
+              p sign up
+    .central-container
+      .left-container-screen
+        .side-nav
+          ul
+            li.home Home
+            li.my-profile My Profile
+            li.create-quiz Create Quiz
+            li.people People
+            li.friends.boldIt Friends
+            li.settings Settings
+      .middle-container-screen-outgoing-requests
+        .top-container-outgoing
+          p Outgoing Requests
+        .bottom-container-outgoing
+          for request in outgoing_array
+            .friend-request-snippet-outgoing
+              .nameAndCredits
+                .name-outgoing-request
+                  .profile-friends-pics
+                    .profile-pic-outgoing-request
+                      img(src=`./img/users/${request.photo}` alt='')
+                  p= request.name
+                .credits-incoming-request
+                  | Credits &nbsp
+                  span= request.credits
+              .acceptorReject
+                .pending
+                  p Request pending . . .
+      .right-container-screen-incoming-requests

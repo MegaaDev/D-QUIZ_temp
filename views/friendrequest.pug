@@ -1,0 +1,37 @@
+extends base
+
+block content 
+
+  .background-container
+    .nav
+      .nav-contents
+        .Logo
+          h1 D-Quiz
+        .search-box
+          input(type='text' placeholder='search for quizzes')
+          if user
+            .user-photo
+              img(src=`/img/users/${user.photo}` alt='')
+          else if !user   
+            .sign-up-home
+              p sign up
+    .central-container
+      .left-container-screen
+        .side-nav
+          ul
+            li.home Home
+            li.my-profile My Profile
+            li.create-quiz Create Quiz
+            li.people.boldIt People
+            li.friends Friends
+            li.settings Settings
+      .middle-container-screen-friendrequest
+        .top-friendreq
+          .profile-pic-friendreq
+            img(src=`/img/users/${reciever.photo}` alt='')
+          p= `Friend request sent to ${reciever.username}!`
+        .bottom-friendreq
+          p Checkout Friends Page
+          .button-discover
+            p Discover People
+      .right-container-screen-friendrequest
